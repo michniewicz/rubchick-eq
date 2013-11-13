@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<title>Equalizer "Rubchick EQ" Demo</title>
+	<link rel="stylesheet" href="./css/jquery-ui.css" type="text/css" />
+	<link rel="stylesheet" href="./css/app.css" type="text/css" />
+	<script type="text/javascript" src="./js/jquery.js" charset="utf-8"></script>
+	<script src="./js/jquery-ui.min.js"></script>
+</head>
+<body>
+
+	<div id="wrap">
+		<h2>"Rubchick EQ" equalizer</h2>
+		<p>
+		Supported browsers:<br />
+		PC:<br />
+		Google Chrome 14, Opera 15, Safari 6<br />
+		<br />
+		Mobile:<br />
+		Google Chrome for Android 29, Mobile Safari 6, Mozilla Firefox 25, Tizen<br /><br />
+		</p>
+		<p>Demo</p>
+		<audio id="audio_" width="320" height="240" controls>
+			<source src="rickroll.ogg" type="audio/ogg">
+			<source src="rickroll.mp3" type="audio/mpeg">
+		</audio>
+		<br />
+	<div class="clear"></div>
+
+
+<div class="clear"></div>
+	<table>
+		<td>
+			<div class="equalizer" id="filter55Hz"></div>	
+			<p>55 Hz</p>
+		</td>
+		<td>
+			<div class="equalizer" id="filter77Hz"></div>
+			<p>77 Hz</p>
+		</td>
+		<td>
+			<div class="equalizer" id="filter110Hz"></div>
+			<p>110 Hz</p>
+		</td>
+		<td>
+			<div class="equalizer" id="filter156Hz"></div>
+			<p>156 Hz</p>
+		</td>
+		
+		<td>
+			<div class="equalizer" id="filter220Hz"></div>
+			<p>220 Hz</p>
+		</td>
+		
+		<td>
+			<div class="equalizer" id="filter311Hz"></div>
+			<p>311 Hz</p>
+		</td>
+		
+		<td>
+			<div class="equalizer" id="filter440Hz"></div>
+			<p>440 Hz</p>
+		</td>
+		
+		<td>
+			<div class="equalizer" id="filter622Hz"></div>
+			<p>622 Hz</p>
+		</td>
+		
+		<td>
+			<div class="equalizer" id="filter880Hz"></div>
+			<p>880 Hz</p>
+		</td>
+		
+		<td>
+			<div class="equalizer" id="filter1200Hz"></div>
+			<p>1.2 kHz</p>
+		</td>
+		
+		<td>
+			<div class="equalizer" id="filter1800Hz"></div>
+			<p>1.8 kHz</p>
+		</td>
+		
+		<td>
+			<div class="equalizer" id="filter2500Hz"></div>
+			<p>2.5 kHz</p>
+		</td>
+		
+		<td>
+			<div class="equalizer" id="filter3500Hz"></div>
+			<p>3.5 kHz</p>
+		</td>
+		
+		<td>
+			<div class="equalizer" id="filter5000Hz"></div>
+			<p>5 kHz</p>
+		</td>
+		
+		<td>
+			<div class="equalizer" id="filter7000Hz"></div>
+			<p>7 kHz</p>
+		</td>
+		
+		<td>
+			<div class="equalizer" id="filter10000Hz"></div>
+			<p>10 kHz</p>
+		</td>
+		
+		<td>
+			<div class="equalizer" id="filter14000Hz"></div>
+			<p>14 kHz</p>
+		</td>
+		
+		<td>
+			<div class="equalizer" id="filter20000Hz"></div>
+			<p>20 kHz</p>
+		</td>
+	</table>
+
+	<span>Select Preset: </span>
+	<select onchange="changePreset(this)">
+		<option value="Flat">Flat</option>
+		<option value="Rock">Rock</option>
+		<option value="Metal">Metal</option>
+		<option value="Home Theater">Home Theater</option>
+	</select>
+	
+	<div class="clear"></div>
+	<canvas width="800" height="200" /></canvas>
+	
+</body>
+
+<script type="text/javascript" src="./js/rubchick_eq.js" charset="utf-8"></script>
+
+<script>
+
+var interval = 0;
+$('#audio_').on('playing', function() {
+	interval = setInterval(drawSpectrum, 10);
+	console.log("playing");
+});
+$('#audio_').on('pause', function() {
+	clearInterval(interval);
+	console.log("pause");
+});
+$('#audio_').on('ended', function() {
+	clearInterval(interval);
+	console.log("stop");
+});
+</script>
