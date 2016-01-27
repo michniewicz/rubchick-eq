@@ -19,7 +19,7 @@ var analyserNode = context.createAnalyser();
 
 function initFilter(){
 	var filter = context.createBiquadFilter();
-	filter.type = 5;    
+	filter.type = 'peaking';
 	filter.gain.value = null;    
 	filter.Q.value = 1;
 	
